@@ -108,9 +108,10 @@ function createTime(i) {
   $('.time-block:last-child').append(dailyTime);
 };
 
-function createTextArea() {
+function createTextArea(i) {
   var appointment = $('<textarea>').attr('class', 'col-8 col-md-10 description').attr('rows', '3');
   $('.time-block:last-child').append(appointment);
+  dailyTimeBlocks[i].textarea = appointment;
 };
 
 function createSaveButton() {
@@ -124,7 +125,7 @@ function displayTimeBlocks() {
   for (var i = 0; i < dailyTimeBlocks.length; i += 1) {
     createRow();
     createTime(i);
-    createTextArea();
+    createTextArea(i);
     createSaveButton();
   };
 };
@@ -135,14 +136,15 @@ function compareHour() {
   dailyTimeBlocks.forEach(function(block) {
     var hour = $('dailyTimeBlocks[block].hour');
     console.log(block.hour);
-    console.log(block.index);
       if (hour < currentHour) {
-        block.index.$('textarea').addClass('past');
+        block.textarea.addClass('past');
       } else if (hour > currentHour) {
-        block.index.$('textarea').addClass('future')
+        block.textarea.addClass('future')
       } else {
-        block.index.$('textarea').addClass('present')
+        block.textarea.addClass('present')
       };
+      console.log(hour > currentHour);
+      console.log(hour < currentHour);
   });
 };
 
