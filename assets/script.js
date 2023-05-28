@@ -134,13 +134,14 @@ function compareHour() {
   console.log(currentHour);
   dailyTimeBlocks.forEach(function(block) {
     var hour = $('dailyTimeBlocks[block].hour');
-    console.log(hour > currentHour);
+    console.log(block.hour);
+    console.log(block.index);
       if (hour < currentHour) {
-        $('block.index').addclass('past')
+        block.index.$('textarea').addClass('past');
       } else if (hour > currentHour) {
-        $('block.index').addclass('future')
+        block.index.$('textarea').addClass('future')
       } else {
-        $('block.index').addclass('present')
+        block.index.$('textarea').addClass('present')
       };
   });
 };
