@@ -134,6 +134,15 @@ function compareHour(i) {
   console.log(hour);
   var currentHour = dayjs().format('hh');
   console.log(currentHour);
+    for (var i = 0; i < dailyTimeBlocks.length; i++) {
+      if (hour < currentHour) {
+        $('.time-block').addclass('future');
+      } else if (hour > currentHour) {
+        $('.time-block').addclass('past')
+      } else {
+        $('.time-block').addclass('present')
+      };
+    };
 };
 
 
