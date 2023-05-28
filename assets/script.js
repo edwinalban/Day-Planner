@@ -21,10 +21,8 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
   todaysDate();
-  createRow();
-  createTime();
-  createTextArea()
-  createSaveButton()
+ 
+  displayTimeBlocks();
 });
 
 var dailyTimeBlocks = [
@@ -120,11 +118,11 @@ function createSaveButton() {
   $(saveButton).append(icon);
 };
 
-// function displayTimeBlocks() {
-//   for (var i = 0; i < dailyTimeBlocks.length; i++) {
-//     createRow();
-//     createTime();
-//     createTextArea();
-//     createSaveButton();
-//   };
-// };
+function displayTimeBlocks() {
+  for (var i = 0; i < dailyTimeBlocks.length; i += 1) {
+    createRow();
+    createTime();
+    createTextArea();
+    createSaveButton();
+  };
+};
