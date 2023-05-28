@@ -43,7 +43,7 @@ var dailyTimeBlocks = [
   {
     index: 2,
     hour: "11",
-    time: "10:00",
+    time: "11:00",
     am_pm: "am"
   },
 
@@ -100,28 +100,28 @@ function createRow() {
   $('.container-lg').append(row);
 };
 
-function createTime() {
+function createTime(i) {
   var dailyTime = $('<div>').attr('class', 'd-flex col-2 col-md-1 hour justify-content-around align-items-center py-3');
-  dailyTime.text(dailyTimeBlocks[0].time + dailyTimeBlocks[0].am_pm);
-  $('.time-block').append(dailyTime);
+  dailyTime.text(dailyTimeBlocks[i].time + dailyTimeBlocks[i].am_pm);
+  $('.time-block:last-child').append(dailyTime);
 };
 
 function createTextArea() {
   var appointment = $('<textarea>').attr('class', 'col-8 col-md-10 description').attr('rows', '3');
-  $('.time-block').append(appointment);
+  $('.time-block:last-child').append(appointment);
 };
 
 function createSaveButton() {
   var saveButton = $('<button>').attr('class', 'btn saveBtn col-2 col-md-1').attr('aria-label', 'save');
   var icon = $('<i>').attr('class', 'fas fa-save').attr('aria-hidden', 'true');
-  $('.time-block').append(saveButton);
+  $('.time-block:last-child').append(saveButton);
   $(saveButton).append(icon);
 };
 
 function displayTimeBlocks() {
   for (var i = 0; i < dailyTimeBlocks.length; i += 1) {
     createRow();
-    createTime();
+    createTime(i);
     createTextArea();
     createSaveButton();
   };
