@@ -20,10 +20,111 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-  todayDate();
+  todaysDate();
+  createRow();
+  createTime();
+  createTextArea()
+  createSaveButton()
 });
 
-function todayDate() {
-  var now = dayjs();
-  $('#currentDay').text(now.format('MMM D, YYYY'));
+var dailyTimeBlocks = [
+  {
+    index: 0,
+    hour: "09",
+    time: "9:00",
+    am_pm: "am"
+  },
+
+  {
+    index: 1,
+    hour: "10",
+    time: "10:00",
+    am_pm: "am"
+  },
+
+  {
+    index: 2,
+    hour: "11",
+    time: "10:00",
+    am_pm: "am"
+  },
+
+  {
+    index: 3,
+    hour: "12",
+    time: "12:00",
+    am_pm: "pm"
+  },
+
+  {
+    index: 4,
+    hour: "13",
+    time: "1:00",
+    am_pm: "pm"
+  },
+
+  {
+    index: 5,
+    hour: "14",
+    time: "2:00",
+    am_pm: "pm"
+  },
+
+  {
+    index: 6,
+    hour: "15",
+    time: "3:00",
+    am_pm: "pm"
+  },
+  
+  {
+    index: 7,
+    hour: "16",
+    time: "4:00",
+    am_pm: "pm"
+  },
+
+  {
+    index: 8,
+    hour: "17",
+    time: "5:00",
+    am_pm: "pm"
+  },
+]
+
+function todaysDate() {
+  var date = dayjs();
+  $('#currentDay').text(date.format('MMM D, YYYY'));
 };
+
+function createRow() {
+  var row = $('<div>').attr('class', 'row time-block');
+  $('.container-lg').append(row);
+};
+
+function createTime() {
+  var dailyTime = $('<div>').attr('class', 'd-flex col-2 col-md-1 hour justify-content-around align-items-center py-3');
+  dailyTime.text(dailyTimeBlocks[0].time + dailyTimeBlocks[0].am_pm);
+  $('.time-block').append(dailyTime);
+};
+
+function createTextArea() {
+  var appointment = $('<textarea>').attr('class', 'col-8 col-md-10 description').attr('rows', '3');
+  $('.time-block').append(appointment);
+};
+
+function createSaveButton() {
+  var saveButton = $('<button>').attr('class', 'btn saveBtn col-2 col-md-1').attr('aria-label', 'save');
+  var icon = $('<i>').attr('class', 'fas fa-save').attr('aria-hidden', 'true');
+  $('.time-block').append(saveButton);
+  $(saveButton).append(icon);
+};
+
+// function displayTimeBlocks() {
+//   for (var i = 0; i < dailyTimeBlocks.length; i++) {
+//     createRow();
+//     createTime();
+//     createTextArea();
+//     createSaveButton();
+//   };
+// };
