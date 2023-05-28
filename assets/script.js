@@ -24,7 +24,7 @@ $(function () {
  
   displayTimeBlocks();
 
-  compareHour(i);
+  compareHour();
 });
 
 var dailyTimeBlocks = [
@@ -129,20 +129,20 @@ function displayTimeBlocks() {
   };
 };
 
-function compareHour(i) {
-  var hour = dailyTimeBlocks[i].hour;
-  console.log(hour);
-  var currentHour = dayjs().format('hh');
+function compareHour() {
+  var currentHour = dayjs().format('HH');
   console.log(currentHour);
-    for (var i = 0; i < dailyTimeBlocks.length; i++) {
+  dailyTimeBlocks.forEach(function(block) {
+    var hour = $('dailyTimeBlocks[block].hour');
+    console.log(hour > currentHour);
       if (hour < currentHour) {
-        $('.time-block').addclass('future');
+        $('block.index').addclass('past')
       } else if (hour > currentHour) {
-        $('.time-block').addclass('past')
+        $('block.index').addclass('future')
       } else {
-        $('.time-block').addclass('present')
+        $('block.index').addclass('present')
       };
-    };
+  });
 };
 
 
