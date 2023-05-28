@@ -23,6 +23,8 @@ $(function () {
   todaysDate();
  
   displayTimeBlocks();
+
+  compareHour(i);
 });
 
 var dailyTimeBlocks = [
@@ -126,3 +128,13 @@ function displayTimeBlocks() {
     createSaveButton();
   };
 };
+
+function compareHour(i) {
+  var hour = dailyTimeBlocks[i].hour;
+  console.log(hour);
+  var currentHour = dayjs().format('hh');
+  console.log(currentHour);
+};
+
+
+
