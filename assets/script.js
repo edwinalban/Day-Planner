@@ -166,14 +166,12 @@ function getAppointments() {
   }
 };
 
-var textAreaInputs = localStorage.getItem(dailyTimeBlocks) || [];
-
 function displayAppointments() {
-  dailyTimeBlocks.forEach(function() {
-    var allTextAreas = $('#i');
-    allTextAreas.textContent = textAreaInputs.textarea;
-    console.log(textAreaInputs.textarea)
-  });
+    for (var i = 0; i < dailyTimeBlocks.length; i++) {
+      var allTextAreas = $('#' + i);
+      allTextAreas[0].value = dailyTimeBlocks[i].textarea;
+      console.log(dailyTimeBlocks[i].textarea);
+    }; 
 };
 
 
