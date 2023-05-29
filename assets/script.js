@@ -9,22 +9,25 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
 
-$('.saveBtn').on('click', function() {
-  var savedInputs = $(this).siblings('.description').attr('id');
-  dailyTimeBlocks[savedInputs].textarea = $(this).siblings('.description').val();
-  saveAppointments();
-  getAppointments();
-  displayAppointments();
-});
+
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   todaysDate();
- 
   displayTimeBlocks();
-
   compareHour();
+  getAppointments();
+  displayAppointments();
+
+  $('.saveBtn').on('click', function(e) {
+    e.preventDefault();
+    var savedInputs = $(this).siblings('.description').attr('id');
+    console.log(savedInputs);
+    dailyTimeBlocks[savedInputs].textarea = $(this).siblings('.description').val();
+    console.log(dailyTimeBlocks[savedInputs].textarea);
+    saveAppointments();
+  });
 });
 
 var dailyTimeBlocks = [
@@ -160,13 +163,16 @@ function getAppointments() {
 
   if (update) {
     dailyTimeBlocks = update;
-  };
+  }
 };
 
+var textAreaInputs = localStorage.getItem(dailyTimeBlocks) || [];
+
 function displayAppointments() {
-  dailyTimeBlocks.forEach(function(block) {
-    var input = block.textarea.textContent;
-    block.textarea = input;
+  dailyTimeBlocks.forEach(function() {
+    var allTextAreas = $('#i');
+    allTextAreas.textContent = textAreaInputs.textarea;
+    console.log(textAreaInputs.textarea)
   });
 };
 
