@@ -109,7 +109,8 @@ function createTime(i) {
 function createTextArea(i) {
   var appointment = $('<textarea>')
   .attr('class', 'col-8 col-md-10 description')
-  .attr('rows', '3');
+  .attr('rows', '3')
+  .attr('id', i);
 
   $('.time-block:last-child').append(appointment);
   dailyTimeBlocks[i].textarea = appointment;
@@ -128,7 +129,7 @@ function displayTimeBlocks() {
     createTime(i);
     createTextArea(i);
     createSaveButton();
-    assignID();
+    // assignID();
   };
 };
 
@@ -145,10 +146,10 @@ function compareHour() {
   });
 };
 
-function assignID() {
-  dailyTimeBlocks.forEach(function(block) {
-    block.textarea.attr('id', 'block.index')
-  });
-};
+// function assignID() {
+//   dailyTimeBlocks.forEach(function(block) {
+//     block.textarea.attr('id', 'block.index')
+//   });
+// };
 
 
