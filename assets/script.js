@@ -9,7 +9,7 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
 
-$('.saveBtn').on('click', saveAppointment())
+// $('.saveBtn').on('click', saveAppointments());
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -92,18 +92,25 @@ function todaysDate() {
 };
 
 function createRow() {
-  var row = $('<div>').attr('class', 'row time-block');
+  var row = $('<div>')
+  .attr('class', 'row time-block');
+
   $('.container-lg').append(row);
 };
 
 function createTime(i) {
-  var dailyTime = $('<div>').attr('class', 'd-flex col-2 col-md-1 hour justify-content-around align-items-center py-3');
+  var dailyTime = $('<div>')
+  .attr('class', 'd-flex col-2 col-md-1 hour justify-content-around align-items-center py-3');
+
   dailyTime.text(dailyTimeBlocks[i].time + dailyTimeBlocks[i].am_pm);
   $('.time-block:last-child').append(dailyTime);
 };
 
 function createTextArea(i) {
-  var appointment = $('<textarea>').attr('class', 'col-8 col-md-10 description').attr('rows', '3');
+  var appointment = $('<textarea>')
+  .attr('class', 'col-8 col-md-10 description')
+  .attr('rows', '3');
+
   $('.time-block:last-child').append(appointment);
   dailyTimeBlocks[i].textarea = appointment;
 };
@@ -121,6 +128,7 @@ function displayTimeBlocks() {
     createTime(i);
     createTextArea(i);
     createSaveButton();
+    assignID();
   };
 };
 
@@ -128,7 +136,7 @@ function compareHour() {
   var currentHour = dayjs().format('HH');
   dailyTimeBlocks.forEach(function(block) {
       if (block.hour < currentHour) {
-        block.textarea.addClass('past');
+        block.textarea.addClass('past')
       } else if (block.hour > currentHour) {
         block.textarea.addClass('future')
       } else {
@@ -137,5 +145,10 @@ function compareHour() {
   });
 };
 
+function assignID() {
+  dailyTimeBlocks.forEach(function(block) {
+    block.textarea.attr('id', 'block.index')
+  });
+};
 
 
