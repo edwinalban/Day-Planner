@@ -9,7 +9,13 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
 
-// $('.saveBtn').on('click', saveAppointments());
+$('.saveBtn').on('click', function() {
+  var savedInputs = $(this).siblings('.description').attr('id');
+  dailyTimeBlocks[savedInputs].textarea = $(this).siblings('.description').val();
+  saveAppointments();
+  getAppointments();
+  displayAppointments();
+});
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -129,7 +135,6 @@ function displayTimeBlocks() {
     createTime(i);
     createTextArea(i);
     createSaveButton();
-    // assignID();
   };
 };
 
@@ -146,10 +151,23 @@ function compareHour() {
   });
 };
 
-// function assignID() {
-//   dailyTimeBlocks.forEach(function(block) {
-//     block.textarea.attr('id', 'block.index')
-//   });
-// };
+function saveAppointments() {
+  localStorage.setItem("dailyTimeBlocks", JSON.stringify(dailyTimeBlocks));
+};
+
+function getAppointments() {
+  var update = JSON.parse(localStorage.getItem("dailyTimeBlocks"));
+
+  if (update) {
+    dailyTimeBlocks = update;
+  };
+};
+
+function displayAppointments() {
+  dailyTimeBlocks.forEach(function(block) {
+    var input = block.textarea.textContent;
+    block.textarea = input;
+  });
+};
 
 
