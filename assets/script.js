@@ -174,4 +174,3 @@ function displayAppointments() {
     }; 
 };
 
-
