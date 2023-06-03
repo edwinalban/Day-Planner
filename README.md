@@ -3,7 +3,7 @@ Business Hours Day Planner
 
 ## Description
 
-I built this project for the purpose of practicing using Bootstrap, creating/manipulating elements in the DOM via JQuery, using the dayjs()method, and saving/updating elements based on user inputs. This project is focused primarily on the following:
+I built this project for the purpose of practicing using Bootstrap, creating/manipulating elements in the DOM via JQuery, using the dayjs() method, and saving/updating elements based on user inputs. This project is focused primarily on the following:
 Styling elements for responsive design via Bootstrap.
 Creating elements in the DOM via JQuery.
 Appending elements to divs once created via JQuery.
