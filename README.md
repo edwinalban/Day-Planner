@@ -14,7 +14,7 @@ Saving/accessing updates to Local Storage
 
 This project can be found here: 
 
-
+https://edwinalban.github.io/Day-Planner/
 
 ## Installation
 
