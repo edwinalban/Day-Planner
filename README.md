@@ -24,4 +24,4 @@ N/A
 
 The project can be used to practice styling pages via Bootstrap, and using JQuery for traversing the DOM, selecting elements in the DOM for manipulation, adding Event Listeners (specifically "click" events), running functions as a result of user clicks, setting strings to local storage and retrieving them as objects to be displayed in the viewport.
 
-![alt text]
+![alt text](assets/images/day-planner-screenshot.png)
