@@ -16,9 +16,13 @@ This project can be found here:
 
 https://edwinalban.github.io/Day-Planner/
 
-## Installation
+## Technologies Used
 
-N/A
+* Javascript
+* JQuery
+* Bootstrap (CSS Framework)
+* HTML
+* CSS
 
 ## Usage
 
